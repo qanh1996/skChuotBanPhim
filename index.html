@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="11.jpg" id="img" width="200px" height="200px">
+<button onclick="moveRight()">Right</button>
+<button onclick="moveLeft()">Left</button>
+<button onclick="moveDown()">Down</button>
+<button onclick="moveUP()">UP</button>
+
+<script>
+    function Init() {
+        let img;
+        img = document.getElementById('img');
+        img.style.position = 'relative';
+        img.style.left = '0px';
+        img.style.top = '0px';
+
+
+    }
+
+    function moveRight() {
+        img.style.left = parseInt(img.style.left) + 10 + 'px'
+    }
+
+    function moveLeft() {
+        img.style.left = parseInt(img.style.left) - 10 + 'px'
+    }
+
+    function moveDown() {
+        img.style.top = parseInt(img.style.top) + 10 + 'px'
+    }
+
+    function moveUP() {
+        img.style.top = parseInt(img.style.top) - 10 + 'px'
+    }
+
+    function keyBord(abc) {
+        switch (abc.keyCode) {
+            case 38:
+                moveUP();
+                break
+            case 40:
+                moveDown();
+                break
+            case 37:
+                moveLeft();
+                break
+            case 39:
+                moveRight();
+                break
+
+
+        }
+
+
+    }
+
+    function MOVE() {
+        window.addEventListener('keydown', keyBord);
+
+    }
+
+    window.onload = Init();
+    window.onload = MOVE();
+
+</script>
+</body>
+</html>
